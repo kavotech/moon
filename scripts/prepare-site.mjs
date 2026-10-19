@@ -384,6 +384,7 @@ const moonstoneCookieUi = `<div class="moonstone-cookie-layer" hidden>
   <div class="moonstone-cookie-backdrop"></div>
   <section class="moonstone-cookie-panel" role="dialog" aria-modal="true" aria-labelledby="moonstone-cookie-title">
     <button class="moonstone-cookie-close" type="button" aria-label="Close cookie settings">&times;</button>
+    <img class="moonstone-cookie-logo" src="/images/logo.png" alt="Moonstone Advocates" />
     <span class="moonstone-cookie-kicker">Your privacy choices</span>
     <h2 id="moonstone-cookie-title">Choose your cookies</h2>
     <p>We use essential cookies to operate this website. With your permission, optional cookies can help us remember preferences and understand how the site is used.</p>
@@ -718,13 +719,14 @@ const replacements = [
   [/briffa\.com/g, '']
 ];
 
-const moonstoneOverrideCss = `.moonstone-team-directory{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem}
+const homeOfficeSection = `<section class="py-16 bg-base-light" id="our-office"><div class="px-4 md:container"><div class="moonstone-office"><figure class="moonstone-office-photo"><img src="/images/office-front-desk.webp" width="1080" height="810" loading="lazy" alt="The reception desk at Moonstone Advocates in Kampala, with the firm sign and our values on the wall" /></figure><div class="moonstone-office-text content"><span class="moonstone-eyebrow">Visit us</span><h2>Our Kampala Office</h2><p>Step into a calm, welcoming office where our team will listen to your matter and explain your options in plain language.</p><ul><li><strong>Address:</strong> Plot 134 Semwata Road, Ntinda, Kampala</li><li><strong>Hours:</strong> Monday to Friday, 8:30am to 5:30pm</li><li><strong>Phone:</strong> +256 (0) 778 616565</li></ul><a class="btn btn-primary" href="/contact/">Contact us</a></div></div></div></section>`;
+const moonstoneOverrideCss =`.moonstone-team-directory{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem}
 .moonstone-team-card{display:flex;flex-direction:column;background:#fff;border:1px solid rgba(24,26,52,.18);border-radius:.5rem;overflow:hidden;grid-template-columns:none}
 .moonstone-team-card-image{display:block;aspect-ratio:4/5;min-height:0;background:#eef0ff;overflow:hidden}
 .moonstone-team-card-image img,.moonstone-team-card-image img[src="/images/team-akello.png"]{display:block;width:100%;height:100%;min-height:0;object-fit:cover;object-position:center top}
 .moonstone-team-card-content{display:flex;flex-direction:column;flex:1;padding:1.5rem}
-.moonstone-team-card-content h2{font-size:1.5rem!important;line-height:1.25!important;margin:0 0 .25rem}
-.moonstone-team-role{font-size:1.15rem;font-weight:700;margin-bottom:.75rem}
+.moonstone-team-card-content h2{font-size:1.35rem!important;line-height:1.25!important;margin:0 0 .25rem}
+.moonstone-team-role{font-size:1.05rem;font-weight:700;margin-bottom:.75rem}
 .moonstone-team-card-content p{margin:0 0 1.25rem}
 .moonstone-team-card-content .btn{margin-top:auto;align-self:flex-start}
 .moonstone-profile-image{position:sticky;top:9rem;aspect-ratio:4/5;min-height:0;background:#eef0ff;overflow:hidden;border-radius:.5rem}
@@ -733,18 +735,34 @@ const moonstoneOverrideCss = `.moonstone-team-directory{max-width:1180px;margin:
 @media (max-width:640px){.moonstone-team-directory{grid-template-columns:1fr}.moonstone-team-card{width:100%;max-width:420px;margin:0 auto}}
 @media (max-width:767px){.moonstone-profile-image{position:relative;top:auto;max-width:420px}.moonstone-profile-image img{min-height:0}}
 /* Readability: larger type, stronger contrast, no motion */
-html{font-size:112.5%}
-.custom-css{font-size:1rem;line-height:1.75;color:#111327}
-.custom-css p,.custom-css li{line-height:1.75}
+.custom-css{font-size:1.0625rem;line-height:1.7;color:#111327}
+.custom-css p,.custom-css li{line-height:1.7}
 .custom-css .content a:not(.btn){text-decoration:underline;text-underline-offset:3px}
-.custom-css .btn,.custom-css button[type="submit"]{min-height:3.25rem;padding:.85rem 1.6rem;font-size:1.1rem;font-weight:700}
-.custom-css nav a{font-size:1.15rem!important}
+.custom-css .btn,.custom-css button[type="submit"]{min-height:3rem;padding:.75rem 1.4rem;font-size:1rem;font-weight:700}
 .custom-css a:focus-visible,.custom-css button:focus-visible,.custom-css input:focus-visible,.custom-css textarea:focus-visible{outline:3px solid #eab736;outline-offset:3px}
-.custom-css .moonstone-contact-form input,.custom-css .moonstone-contact-form textarea,.custom-css .moonstone-contact-form select{font-size:1.1rem;padding:1rem}
+.custom-css .moonstone-contact-form input,.custom-css .moonstone-contact-form textarea,.custom-css .moonstone-contact-form select{font-size:1rem;padding:.9rem 1rem}
 .moonstone-page-loader{display:none!important}
 .moonstone-page-ready main{animation:none!important}
 .moonstone-reveal.is-visible{animation:none!important}
-.custom-css .btn:hover,.custom-css .moonstone-practice-card:hover,.custom-css article:hover{transform:none!important}`;
+.custom-css .btn:hover,.custom-css .moonstone-practice-card:hover,.custom-css article:hover{transform:none!important}
+.custom-css .content a.btn{text-decoration:none}
+.moonstone-office{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:3rem;align-items:center}
+.moonstone-office-photo{margin:0;border-radius:.5rem;overflow:hidden;box-shadow:0 18px 44px rgba(24,26,52,.14)}
+.moonstone-office-photo img{display:block;width:100%;height:auto}
+.moonstone-office-text h2{margin:.2rem 0 1rem}
+.moonstone-office-text ul{list-style:none;margin:1.25rem 0 1.5rem;padding:0}
+.moonstone-office-text li{padding:.6rem 0;border-bottom:1px solid rgba(24,26,52,.12)}
+.moonstone-office-text li strong{display:inline-block;min-width:5.5rem}
+@media (max-width:900px){.moonstone-office{grid-template-columns:1fr;gap:2rem}}
+.moonstone-cookie-backdrop{background:rgba(24,26,52,.55)!important;backdrop-filter:blur(3px)!important}
+.moonstone-cookie-panel{width:min(620px,100%)!important;padding:2.5rem 2.75rem!important;border-radius:.75rem;border-top:0!important;box-shadow:0 30px 80px rgba(0,0,0,.3)!important}
+.moonstone-cookie-logo{display:block;width:auto;height:auto;max-height:56px;max-width:180px;margin:0 0 1.25rem}
+.moonstone-cookie-panel h2{font-size:1.75rem!important;margin:.25rem 0 .85rem!important}
+.moonstone-cookie-actions{grid-template-columns:1fr 1fr;gap:.75rem!important;margin-top:1.5rem!important}
+.moonstone-cookie-actions button{border-radius:.375rem}
+.moonstone-cookie-manage,.moonstone-cookie-save{grid-column:1/-1}
+.moonstone-cookie-actions button:hover{transform:none!important;box-shadow:none!important;opacity:.88}
+@media (max-width:560px){.moonstone-cookie-panel{padding:1.5rem!important}.moonstone-cookie-actions{grid-template-columns:1fr}}`;
 
 for (const file of htmlFiles) {
   let html = readFileSync(file, 'utf8');
@@ -988,6 +1006,7 @@ body:not(.moonstone-aos-ready) [data-aos]{opacity:1!important;transform:none!imp
   const normalizedFile = file.replace(/\\/g, '/');
   const isHomePage = normalizedFile === path.join(target, 'index.html').replace(/\\/g, '/');
   if (isHomePage) {
+    html = html.replace(/(<section class="relative z-\[1\] bg-purple ">(?:(?!<\/section>)[\s\S])*<\/section>)/, (match) => match + homeOfficeSection);
     html = html.replace(/<section\b(?:(?!<section\b)[\s\S])*?href="\/?content-hub\/(?:(?!<section\b)[\s\S])*?<\/section>/gi, '');
     html = html.replace(/Protect Your commercial and private legal/gi, 'How Can We Help Protect Your Business and Personal Interests?');
   }
@@ -1966,6 +1985,9 @@ ${verification}<link rel="canonical" href="${canonical}" />
 <meta name="theme-color" content="#181a34" />
 <script src="https://www.google.com/recaptcha/api.js?render=${recaptchaSiteKey}" async defer></script>
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c')}</script>`;
+  if (!html.includes('class="moonstone-cookie-logo"')) {
+    html = html.replace('<span class="moonstone-cookie-kicker">', '<img class="moonstone-cookie-logo" src="/images/logo.png" alt="Moonstone Advocates" />\n    <span class="moonstone-cookie-kicker">');
+  }
   html = html
     .replace(/<title>[\s\S]*?<\/title>\s*/gi, '')
     .replace(/<meta\s+name="description"[^>]*>\s*/gi, '')
