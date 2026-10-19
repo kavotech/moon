@@ -50,6 +50,8 @@
     { "source": "/case-studies/:path*", "destination": "/content-hub/", "permanent": true },
     { "source": "/industry-insights-legal-videos-library/:path*", "destination": "/content-hub/", "permanent": true },
     { "source": "/portfolio/:path*", "destination": "/content-hub/", "permanent": true },
+    { "source": "/team/akello-shirley-marylin", "destination": "/team/akello-shirley-marvin/", "permanent": true },
+    { "source": "/team/akello-shirley-marylin/", "destination": "/team/akello-shirley-marvin/", "permanent": true },
     { "source": "/meet-team", "destination": "/meet-the-team/", "permanent": true },
     { "source": "/meet-team/", "destination": "/meet-the-team/", "permanent": true },
     { "source": "/meet-team/:path*", "destination": "/meet-the-team/", "permanent": true },

@@ -546,13 +546,13 @@ const teamMembers = [
     quote: 'Disputes are best handled with preparation, clarity and a steady focus on results.'
   },
   {
-    name: 'AKELLO SHIRLEY MARYLIN',
+    name: 'AKELLO SHIRLEY MARVIN',
     role: 'Associate',
-    path: '/team/akello-shirley-marylin/index.html',
+    path: '/team/akello-shirley-marvin/index.html',
     sourcePath: '/meet-team/charlotte-owens/index.html',
     image: '/images/team-akello.png',
     profile: [
-      "Akello Shirley Marylin is an Associate in the firm's Litigation Department.",
+      "Akello Shirley Marvin is an Associate in the firm's Litigation Department.",
       'She joined Moonstone Advocates as an intern and was retained upon completion of her Postgraduate Diploma in Legal Practice.',
       'She supports corporate clients across contract review and drafting, loan documentation, perfection of securities and employment advisory services.',
       'Her practice also extends to corporate governance, compliance, quality assurance, banking and finance, and employment law advisory. She maintains a keen interest in litigation, artificial intelligence and technology governance within the corporate space.',
@@ -717,6 +717,34 @@ const replacements = [
   [/www\.briffa\.com/g, ''],
   [/briffa\.com/g, '']
 ];
+
+const moonstoneOverrideCss = `.moonstone-team-directory{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem}
+.moonstone-team-card{display:flex;flex-direction:column;background:#fff;border:1px solid rgba(24,26,52,.18);border-radius:.5rem;overflow:hidden;grid-template-columns:none}
+.moonstone-team-card-image{display:block;aspect-ratio:4/5;min-height:0;background:#eef0ff;overflow:hidden}
+.moonstone-team-card-image img,.moonstone-team-card-image img[src="/images/team-akello.png"]{display:block;width:100%;height:100%;min-height:0;object-fit:cover;object-position:center top}
+.moonstone-team-card-content{display:flex;flex-direction:column;flex:1;padding:1.5rem}
+.moonstone-team-card-content h2{font-size:1.5rem!important;line-height:1.25!important;margin:0 0 .25rem}
+.moonstone-team-role{font-size:1.15rem;font-weight:700;margin-bottom:.75rem}
+.moonstone-team-card-content p{margin:0 0 1.25rem}
+.moonstone-team-card-content .btn{margin-top:auto;align-self:flex-start}
+.moonstone-profile-image{position:sticky;top:9rem;aspect-ratio:4/5;min-height:0;background:#eef0ff;overflow:hidden;border-radius:.5rem}
+.moonstone-profile-image img{display:block;width:100%;height:100%;min-height:0;object-fit:cover;object-position:center top}
+@media (max-width:900px){.moonstone-team-directory{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.moonstone-team-directory{grid-template-columns:1fr}.moonstone-team-card{width:100%;max-width:420px;margin:0 auto}}
+@media (max-width:767px){.moonstone-profile-image{position:relative;top:auto;max-width:420px}.moonstone-profile-image img{min-height:0}}
+/* Readability: larger type, stronger contrast, no motion */
+html{font-size:112.5%}
+.custom-css{font-size:1rem;line-height:1.75;color:#111327}
+.custom-css p,.custom-css li{line-height:1.75}
+.custom-css .content a:not(.btn){text-decoration:underline;text-underline-offset:3px}
+.custom-css .btn,.custom-css button[type="submit"]{min-height:3.25rem;padding:.85rem 1.6rem;font-size:1.1rem;font-weight:700}
+.custom-css nav a{font-size:1.15rem!important}
+.custom-css a:focus-visible,.custom-css button:focus-visible,.custom-css input:focus-visible,.custom-css textarea:focus-visible{outline:3px solid #eab736;outline-offset:3px}
+.custom-css .moonstone-contact-form input,.custom-css .moonstone-contact-form textarea,.custom-css .moonstone-contact-form select{font-size:1.1rem;padding:1rem}
+.moonstone-page-loader{display:none!important}
+.moonstone-page-ready main{animation:none!important}
+.moonstone-reveal.is-visible{animation:none!important}
+.custom-css .btn:hover,.custom-css .moonstone-practice-card:hover,.custom-css article:hover{transform:none!important}`;
 
 for (const file of htmlFiles) {
   let html = readFileSync(file, 'utf8');
@@ -1039,7 +1067,7 @@ body:not(.moonstone-aos-ready) [data-aos]{opacity:1!important;transform:none!imp
   html = html.replace(/Éamon Chawke/g, 'Norah Amanya');
   html = html.replace(/Eamon Chawke/g, 'Norah Amanya');
   html = html.replace(/Daniel Crate/g, 'Sande Happy');
-  html = html.replace(/Cassine Bering/g, 'Akello Shirley Marylin');
+  html = html.replace(/Cassine Bering/g, 'Akello Shirley Marvin');
   html = html.replace(/Book a consultation\./g, 'Book a consultation in Kampala.');
   html = html.replace(/P\.O\. Box 189860,\s*Kampala,\s*Uganda,\s*Uganda/g, 'P.O. Box 189860, Kampala, Uganda');
   html = html.replace(/href="mailto:info@"/g, 'href="mailto:info@moonstoneadvocates.com"');
@@ -1644,7 +1672,7 @@ const servicesLanding = editorialPage({
 
 const teamDirectoryCards = teamMembers.map((member) => `<article class="moonstone-team-card">
   <a class="moonstone-team-card-image" href="${cleanUrl(member.path)}" aria-label="View ${member.name}'s profile"><img src="${member.image}" alt="${member.name}, ${member.role}" /></a>
-  <div class="moonstone-team-card-content"><h2>${member.name}</h2><span class="moonstone-team-role">${member.role}</span><span class="moonstone-team-qualifications">${member.qualifications}</span><p>${member.profile[0]}</p><p class="moonstone-team-expertise"><strong>Areas of expertise:</strong> ${member.practice.slice(0, 4).join(', ')}</p><a href="${cleanUrl(member.path)}">View full profile</a></div>
+  <div class="moonstone-team-card-content"><h2>${member.name}</h2><span class="moonstone-team-role">${member.role}</span><p>${member.profile[0]}</p><a class="btn btn-primary" href="${cleanUrl(member.path)}">View profile</a></div>
 </article>`).join('\n');
 const meetTheTeamPage = editorialPage({
   title: 'Meet the Team',
@@ -1946,7 +1974,8 @@ ${verification}<link rel="canonical" href="${canonical}" />
     .replace(/<script\b[^>]*src="https:\/\/www\.google\.com\/recaptcha\/api\.js[^>]*><\/script>\s*/gi, '')
     .replace(/<script\b[^>]*src="[^"]*\/ninja-forms\/[^"]*"[^>]*><\/script>\s*/gi, '')
     .replace(/<script\s+type="application\/ld\+json">[\s\S]*?<\/script>\s*/gi, '')
-    .replace('</head>', `${metadata}\n</head>`);
+    .replace(/<style id="moonstone-overrides">[\s\S]*?<\/style>\s*/g, '')
+    .replace('</head>', `<style id="moonstone-overrides">\n${moonstoneOverrideCss}\n</style>\n${metadata}\n</head>`);
   html = normalizeLogoReferences(normalizeDocumentColours(html));
   writeFileSync(file, html);
   if (!isNotFoundPage) {
