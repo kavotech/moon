@@ -735,10 +735,11 @@ const moonstoneOverrideCss =`.moonstone-team-directory{max-width:1180px;margin:0
 @media (max-width:640px){.moonstone-team-directory{grid-template-columns:1fr}.moonstone-team-card{width:100%;max-width:420px;margin:0 auto}}
 @media (max-width:767px){.moonstone-profile-image{position:relative;top:auto;max-width:420px}.moonstone-profile-image img{min-height:0}}
 /* Readability: larger type, stronger contrast, no motion */
-.custom-css{font-size:1.0625rem;line-height:1.7;color:#111327}
-.custom-css p,.custom-css li{line-height:1.7}
+.custom-css{font-size:1rem;line-height:1.65;color:#111327}
+.moonstone-cookie-layer{z-index:10050!important}
+.custom-css p,.custom-css li{line-height:1.65}
 .custom-css .content a:not(.btn){text-decoration:underline;text-underline-offset:3px}
-.custom-css .btn,.custom-css button[type="submit"]{min-height:3rem;padding:.75rem 1.4rem;font-size:1rem;font-weight:700}
+.custom-css .btn,.custom-css button[type="submit"]{min-height:2.75rem;padding:.7rem 1.25rem;font-size:.95rem;font-weight:700}
 .custom-css a:focus-visible,.custom-css button:focus-visible,.custom-css input:focus-visible,.custom-css textarea:focus-visible{outline:3px solid #eab736;outline-offset:3px}
 .custom-css .moonstone-contact-form input,.custom-css .moonstone-contact-form textarea,.custom-css .moonstone-contact-form select{font-size:1rem;padding:.9rem 1rem}
 .moonstone-page-loader{display:none!important}
