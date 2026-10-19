@@ -2009,6 +2009,6 @@ indexedPages.sort((a, b) => a.route === '/' ? -1 : b.route === '/' ? 1 : a.route
 const sitemapEntries = indexedPages.map((page) => `  <url>\n    <loc>${page.canonical.replace(/&/g, '&amp;')}</loc>\n    <lastmod>${page.lastmod}</lastmod>${page.image ? `\n    <image:image><image:loc>${page.image}</image:loc></image:image>` : ''}\n  </url>`).join('\n');
 writeFileSync(path.join(target, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${sitemapEntries}\n</urlset>\n`);
 writeFileSync(path.join(target, 'google-indexing-urls.txt'), `${indexedPages.map((page) => page.canonical).join('\n')}\n`);
-writeFileSync(path.join(target, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${productionOrigin}/sitemap.xml\n`);
+writeFileSync(path.join(target, 'robots.txt'), `User-agent: *\nDisallow: /api/\nAllow: /\n\nSitemap: ${productionOrigin}/sitemap.xml\n`);
 
 console.log(`Prepared ${finalHtmlFiles.length} HTML files in ${path.relative(root, target)}`);
