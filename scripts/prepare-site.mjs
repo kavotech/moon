@@ -728,7 +728,7 @@ const moonstoneOverrideCss =`.moonstone-team-directory{max-width:1180px;margin:0
 .moonstone-team-card-content h2{font-size:1.35rem!important;line-height:1.25!important;margin:0 0 .25rem}
 .moonstone-team-role{font-size:1.05rem;font-weight:700;margin-bottom:.75rem}
 .moonstone-team-card-content p{margin:0 0 1.25rem}
-.moonstone-team-card-content .btn{margin-top:auto;align-self:flex-start}
+.moonstone-team-card-content>a.btn{margin-top:auto;align-self:flex-start;color:#fff!important;text-decoration:none;background:#181a34}
 .moonstone-profile-image{position:sticky;top:9rem;aspect-ratio:4/5;min-height:0;background:#eef0ff;overflow:hidden;border-radius:.5rem}
 .moonstone-profile-image img{display:block;width:100%;height:100%;min-height:0;object-fit:cover;object-position:center top}
 @media (max-width:900px){.moonstone-team-directory{grid-template-columns:repeat(2,minmax(0,1fr))}}
